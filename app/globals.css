@@ -1,26 +1,149 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-00: #05080d;
+  --bg-01: #0a1018;
+  --bg-02: #101826;
+  --bg-03: #162236;
+  --bg-04: #1c2d47;
+  --bg-05: #243958;
+  --bg-06: #2d4669;
+  --bg-overlay: rgba(4, 8, 14, 0.76);
+  --bg-tooltip: #0f1725;
+
+  --text-primary: #58d5cf;
+  --text-dark: #f3f8ff;
+  --text-main: #cfdded;
+  --text-sub: #a6b7cb;
+  --text-light: #8393aa;
+  --text-lighter: #68788e;
+  --text-placeholder: #5f7188;
+  --text-inactive: #4d5c71;
+  --text-alert: #ff8b8b;
+  --text-white: #ffffff;
+
+  --title-primary: #89ece7;
+  --title-light: #d4e3f3;
+  --title-dark: #f9fcff;
+
+  --border-primary: #2f8f9b;
+  --border-light: #2e3c52;
+  --border-lighter: #202b3a;
+  --border-dark: #3c4f69;
+
+  --chat-bg-normal: #172334;
+  --chat-bg-blue: #122838;
+  --chat-bg-grey: #202a39;
+  --chat-bg-red: #3a1f2a;
+
+  --form-input-fill: #10192a;
+  --form-input-placeholder: #60748f;
+  --form-border-normal: #2a384e;
+  --form-border-active: #3498a5;
+  --form-border-error: #e07a7a;
+
+  --icon-primary: #58d5cf;
+  --icon-grey-00: #f3f8ff;
+  --icon-grey-01: #d5e1f0;
+  --icon-grey-02: #b9c9dd;
+  --icon-grey-03: #9fb0c5;
+  --icon-grey-04: #889ab0;
+  --icon-grey-05: #71839a;
+  --icon-grey-06: #5f7188;
+  --icon-grey-07: #4f6075;
+  --icon-grey-08: #3f4d61;
+  --icon-grey-09: #2f3b4d;
+  --icon-grey-10: #1f2838;
+
+  --tab-active: #1f314c;
+  --tab-inactive: #111b2c;
+  --tab-disable: #0d1524;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-bg-00: var(--bg-00);
+  --color-bg-01: var(--bg-01);
+  --color-bg-02: var(--bg-02);
+  --color-bg-03: var(--bg-03);
+  --color-bg-04: var(--bg-04);
+  --color-bg-05: var(--bg-05);
+  --color-bg-06: var(--bg-06);
+  --color-bg-overlay: var(--bg-overlay);
+  --color-bg-tooltip: var(--bg-tooltip);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-dark: var(--text-dark);
+  --color-text-main: var(--text-main);
+  --color-text-sub: var(--text-sub);
+  --color-text-light: var(--text-light);
+  --color-text-lighter: var(--text-lighter);
+  --color-text-placeholder: var(--text-placeholder);
+  --color-text-inactive: var(--text-inactive);
+  --color-text-alert: var(--text-alert);
+  --color-text-white: var(--text-white);
+
+  --color-title-primary: var(--title-primary);
+  --color-title-light: var(--title-light);
+  --color-title-dark: var(--title-dark);
+
+  --color-border-primary: var(--border-primary);
+  --color-border-light: var(--border-light);
+  --color-border-lighter: var(--border-lighter);
+  --color-border-dark: var(--border-dark);
+
+  --color-chat-bg-normal: var(--chat-bg-normal);
+  --color-chat-bg-blue: var(--chat-bg-blue);
+  --color-chat-bg-grey: var(--chat-bg-grey);
+  --color-chat-bg-red: var(--chat-bg-red);
+
+  --color-form-input-fill: var(--form-input-fill);
+  --color-form-input-placeholder: var(--form-input-placeholder);
+  --color-form-border-normal: var(--form-border-normal);
+  --color-form-border-active: var(--form-border-active);
+  --color-form-border-error: var(--form-border-error);
+
+  --color-icon-primary: var(--icon-primary);
+  --color-icon-grey-00: var(--icon-grey-00);
+  --color-icon-grey-01: var(--icon-grey-01);
+  --color-icon-grey-02: var(--icon-grey-02);
+  --color-icon-grey-03: var(--icon-grey-03);
+  --color-icon-grey-04: var(--icon-grey-04);
+  --color-icon-grey-05: var(--icon-grey-05);
+  --color-icon-grey-06: var(--icon-grey-06);
+  --color-icon-grey-07: var(--icon-grey-07);
+  --color-icon-grey-08: var(--icon-grey-08);
+  --color-icon-grey-09: var(--icon-grey-09);
+  --color-icon-grey-10: var(--icon-grey-10);
+
+  --color-tab-active: var(--tab-active);
+  --color-tab-inactive: var(--tab-inactive);
+  --color-tab-disable: var(--tab-disable);
+
+  --color-text-tab-active: var(--title-light);
+  --color-text-tab-inactive: var(--text-sub);
+  --color-text-tab-disable: var(--text-inactive);
+  --color-bg-tab-active: var(--tab-active);
+  --color-bg-tab-inactive: var(--tab-inactive);
+  --color-bg-tab-disable: var(--tab-disable);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: var(--border-lighter);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 10% 18%, rgba(88, 213, 207, 0.1), transparent 34%),
+    radial-gradient(circle at 82% 0%, rgba(103, 164, 255, 0.11), transparent 30%),
+    linear-gradient(180deg, var(--bg-01) 0%, var(--bg-00) 44%, var(--bg-01) 100%);
+  color: var(--text-main);
+  font-family: var(--font-geist-sans), sans-serif;
 }
