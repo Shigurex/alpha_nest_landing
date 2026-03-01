@@ -1,30 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# alpha_nest_landing
 
-## Getting Started
+Next.js で構築した Alpha Nest ランディングページです。
 
-First, run the development server:
+## セットアップ
 
 ```bash
+pnpm install
+cp .env.example .env.local
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## API 接続
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+この LP は、ブラウザから直接バックエンドを叩かず、Next.js サーバー経由で API を呼び出します。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+必要な環境変数:
 
-## Learn More
+- `ALPHANEST_API_BASE_URL` 例: `http://localhost:8080` または `https://api.alphanest.jp`
+- `ALPHANEST_API_KEY` 既存キーでの閲覧用（任意）
+- `ALPHANEST_ADMIN_API_KEY` ダッシュボードの「新規キー発行」用
 
-To learn more about Next.js, take a look at the following resources:
+実装済みプロキシ:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `GET /api/v1/*` -> `${ALPHANEST_API_BASE_URL}/v1/*`
+  - `X-Landing-Api-Key` ヘッダーがあればそれを優先し、なければ `ALPHANEST_API_KEY` を使用
+- `POST /api/admin/api-keys` -> `${ALPHANEST_API_BASE_URL}/admin/api-keys`
+  - 上流呼び出し時に `X-Admin-API-Key: ${ALPHANEST_ADMIN_API_KEY}` を自動付与
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+確認方法:
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- LP の Dashboard Preview で「新規キー発行」を押し、キーが表示されることを確認
+- 同画面の接続表示が `API接続OK` になることを確認

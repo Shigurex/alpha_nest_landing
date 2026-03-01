@@ -105,7 +105,7 @@ export const pythonSnippet = `import requests
 
 resp = requests.get(
   "https://api.alphanest.jp/v1/company/7203/insights",
-  headers={"Authorization": "Bearer YOUR_API_KEY"},
+  headers={"X-API-Key": "YOUR_API_KEY"},
   params={"include": "financials,real-estate"},
 )
 
@@ -117,7 +117,7 @@ req, _ := http.NewRequest(
   "https://api.alphanest.jp/v1/screening",
   nil,
 )
-req.Header.Set("Authorization", "Bearer YOUR_API_KEY")
+req.Header.Set("X-API-Key", "YOUR_API_KEY")
 q := req.URL.Query()
 q.Set("market", "TSE")
 q.Set("score_gt", "72")
