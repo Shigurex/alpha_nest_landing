@@ -1,5 +1,6 @@
-import { CreditCard, KeyRound, Sparkles, Trash2 } from "lucide-react";
+import { CreditCard, KeyRound, Sparkles } from "lucide-react";
 
+import KeyManagementPanel from "@/components/landing/key-management-panel";
 import SectionReveal from "@/components/landing/section-reveal";
 import SectionShell from "@/components/landing/section-shell";
 import UsageChart from "@/components/landing/usage-chart";
@@ -50,20 +51,7 @@ function DashboardGrid({ env }: DashboardGridProps) {
           <CardDescription>新規発行・一度だけ表示・削除</CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="rounded-lg border border-border-lighter bg-bg-01 p-3">
-            <p className="text-xs text-text-light">Current key ({env})</p>
-            <p className="mt-1 font-mono text-sm text-title-dark">sk_live_xxxxxxxxxxxx_72kQ</p>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            <Button size="sm">新規キー発行</Button>
-            <Button variant="outline" size="sm">
-              表示
-            </Button>
-            <Button variant="outline" size="sm">
-              <Trash2 className="size-4" />
-              削除
-            </Button>
-          </div>
+          <KeyManagementPanel env={env} />
         </CardContent>
       </Card>
 
